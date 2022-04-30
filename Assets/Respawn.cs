@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Respawn : MonoBehaviour
 {
-    public Vector3 initialPosition;
+    Vector3 initialPosition;
     
     void Start()
     {
@@ -14,5 +14,15 @@ public class Respawn : MonoBehaviour
     public void ReturnToInitialPosition()
     {
         transform.position = initialPosition;
+    }
+    
+    public Vector3 GetInitialPosition()
+    {
+        return initialPosition;
+    }
+
+    public void SetInitialPosition()
+    {
+        initialPosition = transform.position;
     }
 }

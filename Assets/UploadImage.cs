@@ -4,6 +4,7 @@ using System.IO;
 using SFB;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UploadImage : MonoBehaviour
 {
@@ -21,9 +22,10 @@ public class UploadImage : MonoBehaviour
             var pieces = GameObject.FindGameObjectsWithTag("PuzzlePiece");
             foreach (var piece in pieces)
             {
-                piece.GetComponentInChildren<SpriteRenderer>().sprite = sprite;
+                piece.transform.GetChild(0).GetChild(0).gameObject.GetComponentInChildren<Image>().sprite = sprite;
                 piece.GetComponent<Respawn>().ReturnToInitialPosition();
             }
+            pieces[0].transform.parent.GetChild(0).GetChild(0).GetComponent<Image>().sprite = sprite;
         }
     }
     
